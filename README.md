@@ -2,12 +2,16 @@
 
 This is a minimal implementation of the PS4 hack by qwertyoruiopz. It just contains the HEN for the PS4 on fw 5.05.
 
+You will need an ESP32 board with 4MB flash memory to use the software.
+
 ## How to flash your ESP32:
 
 Download the [latest release](https://github.com/CelliesProjects/esp32-ps4-jailbreak/releases/latest).
 
 #### Using Arduino IDE:
-Compile and flash the compiled software to your ESP32 and upload the included `data` folder to the SPIFFS partition.
+1. Unpack the zipfile.
+
+2. Compile and flash the compiled software to your ESP32 and upload the included `data` folder to the SPIFFS partition.
 
 #### Using pre-compiled binaries:
 
@@ -27,5 +31,5 @@ The ESP32 will start an accesspoint named `ESP32 5.05 jailbreak server`.
 
 Connect to this AP with your PS4 and browse to `http://192.168.4.1/index.html` to enable HEN on your PS4.
 
-### Credits:
+#### Credits:
 Specter, IDC, qwertyoruiopz, Flatz, CTurt, Mistawes, XVortex, Al-Azif
