@@ -25,7 +25,7 @@ Use this command to flash the binaries to an esp32 with a default partition tabl
 
 The ESP32 will start an accesspoint named `ESP32 5.05 jailbreak server`. 
 
-Connect to this AP with your PS4 and browse to 192.168.4.1 to enable HEN on your PS4.
+Connect to this AP with your PS4 and browse to `http://192.168.4.1/index.html` to enable HEN on your PS4.
 
 ### Credits:
 Specter, IDC, qwertyoruiopz, Flatz, CTurt, Mistawes, XVortex, Al-Azif
