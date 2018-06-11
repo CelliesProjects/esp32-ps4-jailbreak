@@ -30,6 +30,11 @@ void setup()
     request->send( response );
   });
 
+  server.onNotFound( []( AsyncWebServerRequest * request )
+  {
+    request->send( 404 );
+  });
+
   server.begin();
 
   while ( !accessPointIsStarted )
