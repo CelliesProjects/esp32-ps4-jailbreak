@@ -44,8 +44,11 @@ void setup()
     delay(10);
   };
 
-  Serial.println( "Ready." );
-  Serial.print( "Browse to 'http://");
+  Serial.print( "1. Connect your PS4 to '" );
+  Serial.print( AP_SSID );
+  Serial.println( "' WiFi access point." );
+  Serial.println();
+  Serial.print( "2. Browse to 'http://");
   Serial.print( WiFi.softAPIP() );
   Serial.println( "/' to jailbreak your PS4 5.05." );
 }
