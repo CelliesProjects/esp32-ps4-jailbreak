@@ -5,7 +5,7 @@
 
 const char * AP_SSID = "ESP32 5.05 jailbreak server";
 
-const IPAddress apIP( 192, 168, 4, 1 );
+const IPAddress AP_IP( 192, 168, 4, 1 );
 
 AsyncWebServer server( 80 );
 
@@ -23,18 +23,18 @@ void setup()
 
   WiFi.onEvent( WiFiEvent );
 
-  static const char * HTML_header = "text/html";
+  static const char * HTML_HEADER = "text/html";
 
   //setup webserver
   server.on( "/", HTTP_GET, [] ( AsyncWebServerRequest * request )
   {
-    AsyncWebServerResponse *response = request->beginResponse_P( 200, HTML_header, index_htm, index_htm_len );
+    AsyncWebServerResponse *response = request->beginResponse_P( 200, HTML_HEADER, index_htm, index_htm_len );
     request->send( response );
   });
 
   server.onNotFound( []( AsyncWebServerRequest * request )
   {
-    request->send( 404, HTML_header, "404 not found" );
+    request->send( 404, HTML_HEADER, "404 not found" );
   });
 
   server.begin();
@@ -60,7 +60,7 @@ void WiFiEvent( WiFiEvent_t event )
   switch ( event )
   {
     case SYSTEM_EVENT_AP_START:
-      WiFi.softAPConfig ( apIP, apIP, IPAddress( 255, 255, 255, 0 ) );
+      WiFi.softAPConfig ( AP_IP, AP_IP, IPAddress( 255, 255, 255, 0 ) );
       accessPointIsStarted = true;
       break;
     default:
