@@ -7,9 +7,9 @@ const char * AP_SSID = "ESP32 5.05 jailbreak server";
 
 const IPAddress AP_IP( 192, 168, 4, 1 );
 
-AsyncWebServer server( 80 );
+const uint8_t BUILTIN_LED = 2;
 
-bool accessPointIsStarted = false;
+AsyncWebServer server( 80 );
 
 void setup()
 {
@@ -20,7 +20,6 @@ void setup()
   // setup access point
   WiFi.mode( WIFI_AP );
   WiFi.softAP( AP_SSID );
-
   WiFi.onEvent( WiFiEvent );
 
   static const char * HTML_HEADER = "text/html";
@@ -38,19 +37,6 @@ void setup()
   });
 
   server.begin();
-
-  while ( !accessPointIsStarted )
-  {
-    delay(10);
-  };
-
-  Serial.print( "1. Connect your PS4 to '" );
-  Serial.print( AP_SSID );
-  Serial.println( "' WiFi access point." );
-  Serial.println();
-  Serial.print( "2. Browse to 'http://");
-  Serial.print( WiFi.softAPIP() );
-  Serial.println( "/' to jailbreak your PS4 5.05." );
 }
 
 void loop() {}
@@ -61,7 +47,15 @@ void WiFiEvent( WiFiEvent_t event )
   {
     case SYSTEM_EVENT_AP_START:
       WiFi.softAPConfig ( AP_IP, AP_IP, IPAddress( 255, 255, 255, 0 ) );
-      accessPointIsStarted = true;
+      Serial.print( "1. Connect your PS4 to '" );
+      Serial.print( AP_SSID );
+      Serial.println( "' WiFi access point." );
+      Serial.println();
+      Serial.print( "2. Browse to 'http://");
+      Serial.print( WiFi.softAPIP() );
+      Serial.println( "/' to jailbreak your PS4 5.05." );
+      pinMode( BUILTIN_LED, OUTPUT );
+      digitalWrite( BUILTIN_LED, HIGH );
       break;
     default:
       break;
