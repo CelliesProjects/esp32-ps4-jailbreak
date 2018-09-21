@@ -9,8 +9,6 @@ const IPAddress AP_IP( 192, 168, 4, 1 );
 
 const uint8_t ONBOARD_LED = 2;
 
-AsyncWebServer server( 80 );
-
 void setup()
 {
   Serial.begin( 115200 );
@@ -22,6 +20,7 @@ void setup()
   WiFi.softAP( AP_SSID );
   WiFi.onEvent( WiFiEvent );
 
+  static AsyncWebServer server( 80 );
   static const char * HTML_HEADER = "text/html";
 
   //setup webserver
