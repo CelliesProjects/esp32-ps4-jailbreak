@@ -7,7 +7,7 @@ const char * AP_SSID = "ESP32 5.05 jailbreak server";
 
 const IPAddress AP_IP( 192, 168, 4, 1 );
 
-const uint8_t BUILTIN_LED = 2;
+const uint8_t ONBOARD_LED = 2;
 
 AsyncWebServer server( 80 );
 
@@ -54,8 +54,8 @@ void WiFiEvent( WiFiEvent_t event )
       Serial.print( "2. Browse to 'http://");
       Serial.print( WiFi.softAPIP() );
       Serial.println( "/' to jailbreak your PS4 5.05." );
-      pinMode( BUILTIN_LED, OUTPUT );
-      digitalWrite( BUILTIN_LED, HIGH );
+      pinMode( ONBOARD_LED, OUTPUT );
+      digitalWrite( ONBOARD_LED, HIGH );
       break;
     default:
       break;
