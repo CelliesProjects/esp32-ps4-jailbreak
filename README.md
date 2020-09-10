@@ -6,6 +6,8 @@ It only contains the 'PS4HEN v2.1.2'.
 
 You will need an ESP32 board with 4MB flash memory and a PS4 on fw 5.05 to use the software.
 
+![Hardware](ps4jb.png)
+
 ## How to flash your ESP32:
 
 #### Using Arduino IDE:
